@@ -13,6 +13,11 @@ def encode(password):
         encoded_pass += str(digit)
     return encoded_pass
 
+def decode(encoded_pass):
+    decoded = ""
+    for digit in encoded_pass:
+        decoded += str((int(digit) - 3) % 10)
+    return decoded
 
 if __name__ == '__main__':
     option = -1
@@ -34,7 +39,8 @@ if __name__ == '__main__':
             print()
         # Decodes and prints both passwords (encoded & decoded).
         elif option == 2:
-            # IMPLEMENT
+            decoded = decode(password)
+            print(f"The encoded password is {password}, and the original password is {decoded}")
             print()
         # Exits the program
         elif option == 3:
